@@ -18,8 +18,13 @@ def start():
         elif answer == '3':
             contact = input ('Введите данные контакта для поиска: ')
             result = model.find(contact)
-            view.show_contacts(result)
         elif answer == '4':
+            contact = input ('Введите данные контакта для внесения изменений: ')
+            result = model.change(contact)
+        elif answer == '5':
+            contact = input ('Введите данные контакта для удаления: ')
+            result = model.delete(contact)
+        elif answer == '6':
             break
         else:
             view.error()
