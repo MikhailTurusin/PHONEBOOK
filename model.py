@@ -20,3 +20,14 @@ def change (result):
     print('\n')
     print (f'Данные контакта {result} изменены')
     print('\n')
+
+def delete (result):
+    with open('file.txt', 'r', encoding='utf-8') as file:
+        content = file.readlines()
+    with open('file.txt', 'w', encoding='utf-8') as file:
+        for line in content:
+            if line.strip('\n') != result:
+                file.write(line)
+    print('\n')
+    print (f'Контакт {result} удален')
+    print('\n')
