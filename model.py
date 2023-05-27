@@ -3,12 +3,14 @@ def get_data():
         data = file.read().split('\n')
     return data
 
+
 def add_contact(contact):
     with open('file.txt', 'a', encoding='utf-8') as file:
         file.write('\n')
         file.write(contact)
 
-def change (result):
+
+def change(result):
     with open('file.txt', 'r', encoding='utf-8') as file:
         content = file.readlines()
     with open('file.txt', 'w', encoding='utf-8') as file:
@@ -18,10 +20,11 @@ def change (result):
         file.write('\n')
         file.write(input('Введите новые данные: '))
     print('\n')
-    print (f'Данные контакта {result} изменены')
+    print(f'Данные контакта {result} изменены')
     print('\n')
 
-def delete (result):
+
+def delete(result):
     with open('file.txt', 'r', encoding='utf-8') as file:
         content = file.readlines()
     with open('file.txt', 'w', encoding='utf-8') as file:
@@ -29,5 +32,13 @@ def delete (result):
             if line.strip('\n') != result:
                 file.write(line)
     print('\n')
-    print (f'Контакт {result} удален')
+    print(f'Контакт {result} удален')
     print('\n')
+
+
+def find_contact(contact):
+    with open('file.txt', 'r', encoding='utf-8') as file:
+        date = file.read().split('\n')
+        for i in date:
+            if contact in i:
+                print(i)
